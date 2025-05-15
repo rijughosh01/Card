@@ -5,15 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1
-          style={{
-            color: "black",
-            fontWeight: "lighter",
-            fontFamily: "sans-serif",
-          }}
-        >
-          Product Card
-        </h1>
+        <h1 className="gradient-text">Product Card</h1>
       </header>
       <main>
         <ProductCard />

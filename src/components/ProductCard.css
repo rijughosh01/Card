@@ -1,9 +1,10 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   background-color: white;
 }
+
 .card {
   display: flex;
   border-radius: 10px;
@@ -12,19 +13,31 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 40px auto;
   font-family: sans-serif;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-width: 90%;
+  }
 }
 
+.card-image {
+  flex: 1;
+}
 
 .card-details {
   margin-right: 30px;
   padding: 20px;
   flex: 1;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 }
 
 .product-name {
+  font-family: sans-serif;
   font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-weight:lighter;
   margin-bottom: 10px;
   color: black;
   text-align: start;
@@ -45,56 +58,64 @@
   margin-bottom: 15px;
   color: gray;
   text-align: start;
-}
-.features li::before {
-  content: "✔️";
-  margin-right: 5px;
-}
-.features h2 {
-  font-size: 20px;
-  font-weight: lighter;
-}
 
-.features li {
-  margin-bottom: 5px;
+  h2 {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  li {
+    margin-bottom: 5px;
+
+    &::before {
+      content: "✔️";
+      margin-right: 5px;
+    }
+  }
 }
 
 .price {
   font-size: 23px;
   margin-bottom: 15px;
   text-align: start;
-}
 
-.discounted {
-  color: #e68a00;
-  font-weight: bold;
-  margin-right: 10px;
-}
+  .discounted {
+    color: #e68a00;
+    font-weight: bold;
+    margin-right: 10px;
+  }
 
-.original {
-  text-decoration: line-through;
-  color: #999;
+  .original {
+    text-decoration: line-through;
+    color: #999;
+  }
 }
 
 .buttons {
   display: flex;
   gap: 50px;
-}
 
-.cart-btn {
-  background-color: orange;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
-}
+  .cart-btn, .buy-btn {
+    background-color: orange;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
 
-.buy-btn {
-  background-color: green;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
+  .cart-btn:hover {
+    background-color: #e68a00;
+    transform: scale(1.04);
+  }
+
+  .buy-btn {
+    background-color: green;
+  }
+
+  .buy-btn:hover {
+    background-color: #006400;
+    transform: scale(1.04);
+  }
 }
