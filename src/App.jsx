@@ -1,6 +1,7 @@
 import "./App.css";
 import ProductCard from "./components/ProductCard";
-
+import ProductDesign from "./sampleOfCard/ProductDesign";
+import ProductDesign2 from "./sampleOfCard/cardOfLaptop";
 function App() {
   return (
     <div className="App">
@@ -9,6 +10,8 @@ function App() {
       </header>
       <main>
         <ProductCard />
+        <ProductDesign />
+        <ProductDesign2 />
       </main>
     </div>
   );

@@ -3,7 +3,7 @@ import ProductImageSlider from "./ProductImageSlider";
 
 const ProductCard = () => {
   return (
-     <div className="card">
+    <div className="card">
       <div className="card-image">
         <ProductImageSlider />
       </div>
@@ -11,9 +11,7 @@ const ProductCard = () => {
         <div className="product-name">
           MSI Optix G241V E2 24&quot; FHD FreeSync IPS Esports Gaming Monitor
         </div>
-        <div className="rating">
-          ★★★★☆ <span>(126 review)</span>
-        </div>
+        <div className="rating">★★★★☆ (126 review)</div>
         <ul className="features">
           <h2>Key Features</h2>
           <li>
