@@ -1,7 +1,10 @@
 import "./App.css";
 import ProductCard from "./components/ProductCard";
-import ProductDesign from "./sampleOfCard/ProductDesign";
 import ProductDesign2 from "./sampleOfCard/cardOfLaptop";
+import Badge from "./sampleOfCard/Badge";
+import ProductDesign from "./sampleOfCard/ProductDesign";
+import TShirtCard from "./sampleOfCard/T-shirtCard";
+import TShirtCardList from "./sampleOfCard/TShirtCardList";
 function App() {
   return (
     <div className="App">
@@ -10,8 +13,11 @@ function App() {
       </header>
       <main>
         <ProductCard />
-        <ProductDesign />
         <ProductDesign2 />
+        <Badge />
+        <ProductDesign />
+        <TShirtCard />
+        <TShirtCardList />
       </main>
     </div>
   );

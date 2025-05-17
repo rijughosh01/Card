@@ -1,0 +1,149 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  background: #f8f8f8;
+}
+
+.card-Tshirt {
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  height: 390px;
+  overflow: hidden;
+  width: 200px;
+  background: #fff;
+  margin: 0;
+  padding-bottom: 0;
+  animation: cardFadeIn 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s;
+}
+.card-Tshirt:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-Tshirt > figure > img {
+  width: 100%;
+  display: block;
+  border-radius: 5px 5px 0 0;
+}
+
+.details {
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 10px 12px 10px 12px;
+  width: 100%;
+  box-shadow: none;
+  height: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details > .min-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.details > .min-details > h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  color: #222;
+  margin-right: 0;
+}
+.details > .min-details > h1 > span {
+  display: block;
+  text-align: start;
+  font-size: 0.85rem;
+  color: #4a4a4a;
+  font-weight: 400;
+  margin-top: 2px;
+}
+.details > .min-details > .price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -15px;
+}
+
+.add-btn,
+.buy-btn {
+  padding: 6px 18px;
+  border: 1px solid #080808;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-btn {
+  background: #f0f0f0;
+  border-radius: 5px;
+  color: #222;
+}
+
+.buy-btn {
+  background: #080808;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .card-Tshirt {
+    width: 90vw;
+    min-width: 0;
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .details {
+    padding: 10px 8px 10px 8px;
+    font-size: 0.95rem;
+    height: auto;
+  }
+  .details > .min-details > h1 {
+    font-size: 0.95rem;
+  }
+  .details > .min-details > h1 > span {
+    font-size: 0.8rem;
+  }
+  .details > .min-details > .price {
+    font-size: 0.95rem;
+  }
+  .card-actions {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+  }
+  .add-btn,
+  .buy-btn {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 1rem;
+  }
+}

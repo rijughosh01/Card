@@ -1,0 +1,13 @@
+.tshirt-card-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .tshirt-card-list {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+}
