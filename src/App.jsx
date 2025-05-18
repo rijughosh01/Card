@@ -1,4 +1,5 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
 import ProductDesign2 from "./sampleOfCard/cardOfLaptop";
 import Badge from "./sampleOfCard/Badge";
@@ -8,9 +9,7 @@ import TShirtCardList from "./sampleOfCard/TShirtCardList";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="gradient-text">Product Card</h1>
-      </header>
+      <Navbar />
       <main>
         <ProductCard />
         <ProductDesign2 />
