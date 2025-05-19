@@ -6,6 +6,7 @@ import Badge from "./sampleOfCard/Badge";
 import ProductDesign from "./sampleOfCard/ProductDesign";
 import TShirtCard from "./sampleOfCard/T-shirtCard";
 import TShirtCardList from "./sampleOfCard/TShirtCardList";
+import CardImage from "./sampleOfCard/cardImage";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <ProductDesign />
         <TShirtCard />
         <TShirtCardList />
+        <CardImage />
       </main>
     </div>
   );
