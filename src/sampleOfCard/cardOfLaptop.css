@@ -1,242 +1,273 @@
-.cardDesign {
-  max-width: 750px;
-  margin: 50px auto;
-  border-radius: 15px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+.laptop-card-modern {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
-  padding: 20px;
-  background: #fff;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: 0 35px 65px rgba(0, 0, 0, 0.2);
-  }
-  .card__body {
-    padding: 0 40px;
-    display: flex;
-    flex-flow: row no-wrap;
-    margin-bottom: 25px;
-    > .half {
-      box-sizing: border-box;
-      padding: 0 15px;
-      flex: 1 0 50%;
-      animation: slideIn 0.8s ease both;
-    }
-    .featured_text {
-      h1 {
-        margin: 0;
-        padding: 0;
-        font-weight: 800;
-        font-family: "Montserrat", sans-serif;
-        font-size: 64px;
-        line-height: 50px;
-        color: #181e28;
-      }
-      p {
-        margin: 0;
-        padding: 0;
-        &.sub {
-          font-family: "Montserrat", sans-serif;
-          font-size: 26px;
-          line-height: 70px;
-          text-transform: uppercase;
-          color: #686e77;
-          font-weight: 300;
-          margin-bottom: -5px;
-        }
-        &.price {
-          font-family: "Fjalla One", sans-serif;
-          color: #252525;
-          font-size: 26px;
-          margin-left: 50px;
-        }
-      }
-    }
-    .image {
-      padding-top: 15px;
-      width: 100%;
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        transform: scale(1);
-        transition: transform 0.3s ease;
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-    }
-    .description {
-      margin-bottom: 25px;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-      animation-delay: 0.4s;
-      p {
-        margin: 0;
-        font-family: "Open Sans", sans-serif;
-        font-weight: 300;
-        line-height: 27px;
-        font-size: 16px;
-        text-align: start;
-        color: #555;
-      }
-    }
-    span.stock {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      color: #a1cc16;
-      animation: fadeIn 0.8s ease-in;
-    }
-    .reviews {
-      .stars {
-        display: inline-block;
-        list-style: none;
-        padding: 0;
-        > li {
-          display: inline-block;
-        }
-      }
-      > span {
-        font-family: "Open Sans", sans-serif;
-        font-size: 14px;
-        margin-left: 5px;
-        color: #555;
-      }
-    }
-  }
-  .card__footer {
-    padding: 30px 40px;
-    display: flex;
-    flex-flow: row no-wrap;
-    align-items: center;
-    position: relative;
-    justify-content: space-between;
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 40px;
-      width: calc(100% - 40px);
-      height: 3px;
-      background: linear-gradient(
-        to right,
-        #115dd8 0%,
-        #115dd8 20%,
-        #ddd 20%,
-        #ddd 100%
-      );
-    }
-    .recommend {
-      p {
-        margin: 0;
-        font-family: "Montserrat", sans-serif;
-        text-transform: uppercase;
-        font-weight: 600;
-        font-size: 14px;
-        color: #555;
-      }
-      h3 {
-        margin: 0;
-        font-size: 20px;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #115dd8;
-        transition: transform 0.3s ease;
-        &:hover {
-          transform: translateY(-2px);
-        }
-      }
-    }
-    .action {
-      button {
-        cursor: pointer;
-        border: 1px solid #115dd8;
-        padding: 14px 30px;
-        border-radius: 200px;
-        color: #fff;
-        background: #115dd8;
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        &:hover {
-          background: #fff;
-          color: #115dd8;
-          box-shadow: 0 0 10px rgba(17, 93, 216, 0.3);
-        }
-      }
-    }
-  }
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+
+.laptop-card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 55px -15px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
 }
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+
+/* Header */
+.laptop-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 8px;
 }
-@media (max-width: 600px) {
-  .cardDesign {
-    max-width: 98vw;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .cardDesign .card__body {
-    flex-direction: column;
-    padding: 0 10px;
-  }
-  .cardDesign .card__body > .half {
-    padding: 0;
-    flex: 1 0 100%;
-    margin-bottom: 20px;
-  }
-  .cardDesign .card__body .featured_text h1 {
-    font-size: 32px;
-    line-height: 36px;
-  }
-  .cardDesign .card__body .featured_text p.sub,
-  .cardDesign .card__body .featured_text p.price {
-    font-size: 18px;
-    margin-left: 0;
-    line-height: 30px;
-  }
-  .cardDesign .card__body .image {
-    padding-top: 10px;
-  }
-  .cardDesign .card__body .description p {
-    font-size: 14px;
-    line-height: 22px;
-  }
-  .cardDesign .card__footer {
-    flex-direction: column;
-    padding: 20px 10px;
-    align-items: flex-start;
-  }
-  .cardDesign .card__footer::before {
-    left: 10px;
-    width: calc(100% - 10px);
-  }
-  .cardDesign .card__footer .action {
-    width: 100%;
-    margin-top: 15px;
-  }
-  .cardDesign .card__footer .action button {
-    width: 100%;
-    padding: 12px 0;
-    font-size: 15px;
-  }
+
+.apple-logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.laptop-fav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+}
+
+.laptop-fav-btn:hover {
+  transform: scale(1.1);
+  color: #f43f5e;
+}
+
+/* Stage */
+.laptop-image-stage {
+  position: relative;
+  height: 200px;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.laptop-product-img {
+  max-width: 85%;
+  max-height: 160px;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease-smooth);
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
+}
+
+.laptop-card-modern:hover .laptop-product-img {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+.m4-chip-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.m4-badge {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #fff;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Details */
+.laptop-details-body {
+  padding: 14px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.laptop-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.laptop-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.laptop-subtitle {
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.laptop-price-tag {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-heading);
+}
+
+.cur {
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.val {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.laptop-desc-text {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Specs */
+.laptop-specs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.spec-badge {
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  color: var(--text-secondary);
+}
+
+/* Color Picker */
+.laptop-color-picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.color-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.color-label strong {
+  color: var(--text-primary);
+}
+
+.laptop-swatches {
+  display: flex;
+  gap: 8px;
+}
+
+.laptop-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s var(--ease-spring);
+}
+
+.laptop-swatch:hover {
+  transform: scale(1.2);
+}
+
+.laptop-swatch.active {
+  border-color: #3b82f6;
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Curator */
+.curator-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.curator-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cur-label {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.cur-name {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.laptop-review-stars {
+  color: #f59e0b;
+  font-size: 0.85rem;
+}
+
+.laptop-review-stars span {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+/* CTA */
+.apple-buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-spring);
+}
+
+.apple-buy-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -4px rgba(59, 130, 246, 0.6);
 }

@@ -1,4 +1,4 @@
-.boho-card-modern {
+.waffle-card-modern {
   width: 100%;
   max-width: 380px;
   background: var(--bg-card);
@@ -13,28 +13,46 @@
   text-align: left;
 }
 
-.boho-card-modern:hover {
+.waffle-card-modern:hover {
   transform: translateY(-5px);
-  box-shadow: 0 28px 55px -15px rgba(236, 72, 153, 0.2);
-  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 28px 55px -15px rgba(244, 63, 94, 0.2);
+  border-color: rgba(244, 63, 94, 0.3);
 }
 
-.boho-card-header {
+.waffle-card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px 8px;
 }
 
-.boho-trend-tag {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #ec4899;
-  letter-spacing: 0.1em;
+.waffle-badge-group {
+  display: flex;
+  gap: 8px;
 }
 
-.boho-fav-btn {
+.bakery-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.cal-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.waffle-fav-btn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -48,94 +66,90 @@
   transition: all 0.2s var(--ease-spring);
 }
 
-.boho-fav-btn:hover {
+.waffle-fav-btn:hover {
   transform: scale(1.1);
   color: #f43f5e;
 }
 
-/* Image Stage */
-.boho-img-container {
+/* Image */
+.waffle-img-container {
   position: relative;
   height: 220px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.15);
 }
 
-.boho-img {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  transition: transform 0.4s var(--ease-smooth);
+.waffle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
-.boho-card-modern:hover .boho-img {
+.waffle-card-modern:hover .waffle-img {
   transform: scale(1.06);
 }
 
-.boho-style-badge {
+.waffle-fresh-pill {
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   left: 16px;
   background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   font-size: 0.72rem;
+  color: #fff;
   padding: 3px 8px;
   border-radius: var(--radius-full);
-  color: var(--text-secondary);
 }
 
 /* Details */
-.boho-details {
+.waffle-details {
   padding: 16px 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.boho-label-row {
+.waffle-header-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.boho-brand {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #ec4899;
-}
-
-.boho-rating {
-  font-size: 0.75rem;
-  color: #f59e0b;
-  font-weight: 700;
-}
-
-.boho-title {
+.waffle-title {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-primary);
 }
 
-.boho-desc {
+.waffle-subtitle {
+  font-size: 0.78rem;
+  color: #f43f5e;
+  font-weight: 600;
+}
+
+.waffle-single-price {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.waffle-desc {
   font-size: 0.84rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
 
-.boho-tags-row {
+.waffle-dietary-row {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
 
-.boho-tag {
+.w-pill {
   font-size: 0.72rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
@@ -144,96 +158,65 @@
   color: var(--text-muted);
 }
 
-/* Sizes */
-.boho-size-selector {
+/* Footer & Stepper */
+.waffle-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.b-size-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-}
-
-.b-size-btns {
-  display: flex;
-  gap: 6px;
-}
-
-.b-size-btn {
-  width: 26px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.b-size-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--text-primary);
-}
-
-.b-size-btn.active {
-  background: #ec4899;
-  color: #fff;
-  border-color: #ec4899;
-}
-
-/* Footer */
-.boho-footer {
-  display: flex;
-  justify-content: space-between;
+  gap: 12px;
   align-items: center;
   padding-top: 6px;
 }
 
-.boho-price-block {
+.waffle-stepper {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
-.b-price-sub {
-  font-size: 0.68rem;
-  color: var(--text-muted);
+.w-step-btn {
+  width: 32px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.b-price {
-  font-family: var(--font-heading);
-  font-size: 1.45rem;
-  font-weight: 800;
+.w-step-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.w-step-val {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0 10px;
   color: var(--text-primary);
 }
 
-.boho-buy-btn {
+.waffle-order-btn {
+  flex: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 11px 18px;
-  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  padding: 11px 16px;
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
   color: #fff;
   border-radius: var(--radius-md);
   font-weight: 700;
   font-size: 0.88rem;
   cursor: pointer;
-  box-shadow: 0 8px 20px -6px rgba(236, 72, 153, 0.5);
+  box-shadow: 0 8px 20px -6px rgba(244, 63, 94, 0.5);
   transition: all 0.25s var(--ease-spring);
 }
 
-.boho-buy-btn:hover {
+.waffle-order-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 25px -4px rgba(236, 72, 153, 0.7);
+  box-shadow: 0 12px 25px -4px rgba(244, 63, 94, 0.7);
 }

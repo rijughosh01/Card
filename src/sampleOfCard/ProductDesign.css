@@ -1,189 +1,222 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&family=Roboto+Serif:wght@400;700&display=swap");
-
-body {
-  background: #f0f8ff;
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.wrapper {
-  height: 420px;
-  width: 654px;
-  margin: 50px auto;
-  border-radius: 15px;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+.vase-card-modern {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
-  animation: slideIn 1s ease-out;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
   display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.vase-card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 55px -15px rgba(194, 65, 12, 0.25);
+  border-color: rgba(194, 65, 12, 0.3);
 }
 
-.product-img {
-  flex: 1;
-  background: linear-gradient(to bottom right, #dbeafe, #e0f2fe);
+/* Image container */
+.vase-img-container {
+  position: relative;
+  height: 230px;
+  width: 100%;
   overflow: hidden;
 }
 
-.product-img img {
+.vase-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 15px 0 0 15px;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s var(--ease-smooth);
 }
 
-.product-img img:hover {
-  transform: scale(1.05);
+.vase-card-modern:hover .vase-img {
+  transform: scale(1.06);
 }
 
-.product-info {
-  flex: 1;
-  background: #fff;
-  padding: 20px;
+.artisan-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  color: #fb923c;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.vase-fav-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+}
+
+.vase-fav-btn:hover {
+  transform: scale(1.1);
+  color: #c2410c;
+}
+
+/* Info */
+.vase-info-section {
+  padding: 18px 20px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-radius: 0 15px 15px 0;
-  box-shadow: inset 0 0 10px #f3f4f6;
+  gap: 12px;
 }
 
-.product-text h1 {
-  font-family: "Roboto Serif", serif;
-  font-size: 30px;
-  color: #1f2937;
-  margin-bottom: 10px;
-}
-
-.product-text h2 {
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #9ca3af;
-  letter-spacing: 0.15em;
-}
-
-.product-text p {
-  font-family: "Playfair Display", serif;
-  font-size: 15px;
-  color: #4b5563;
-  line-height: 1.6em;
-  margin-top: 50px;
-}
-
-.product-price-btn {
+.vase-meta-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.price1 {
-  display: inline-block;
-  position: absolute;
-  font-family: "Trocchi", serif;
-  margin: 0 0 0 50px;
-  font-size: 28px;
-  font-weight: lighter;
-  color: #474747;
-  margin-top: -80px;
-}
-
-span {
-  display: inline-block;
-  height: 50px;
-  font-family: "Suranna", serif;
-  font-size: 34px;
-}
-
-.product-price-btn button {
-  display: inline-block;
-  height: 50px;
-  width: 170px;
-  margin: -80px 0 0 120px;
-  box-sizing: border-box;
-  border: transparent;
-  border-radius: 60px;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+.studio-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #fb923c;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-  background-color: #9cebd5;
+}
+
+.batch-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.vase-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.vase-caption {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.vase-specs-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.v-spec {
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+}
+
+.glaze-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.glaze-label {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.glaze-label strong {
+  color: var(--text-primary);
+}
+
+.glaze-swatches {
+  display: flex;
+  gap: 8px;
+}
+
+.glaze-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
   cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
+  transition: transform 0.2s var(--ease-spring);
 }
 
-.product-price-btn button:hover {
-  background: linear-gradient(to right, #0ea5e9, #0369a1);
-  transform: scale(1.05);
+.glaze-swatch:hover {
+  transform: scale(1.2);
 }
 
-@media (max-width: 700px) {
-  .wrapper {
-    flex-direction: column;
-    width: 98vw;
-    height: auto;
-    min-width: unset;
-    min-height: unset;
-    border-radius: 10px;
-    margin: 20px auto;
-  }
+.glaze-swatch.active {
+  border-color: #fff;
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(194, 65, 12, 0.5);
+}
 
-  .product-img {
-    border-radius: 10px 10px 0 0;
-    min-height: 180px;
-    height: 180px;
-  }
+.vase-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 6px;
+}
 
-  .product-img img {
-    border-radius: 10px 10px 0 0;
-    height: 180px;
-    object-fit: cover;
-  }
+.vase-price {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Playfair Display', serif;
+}
 
-  .product-info {
-    border-radius: 0 0 10px 10px;
-    padding: 15px;
-    box-shadow: none;
-  }
+.vase-curr {
+  font-size: 1rem;
+  color: #fb923c;
+  margin-right: 2px;
+}
 
-  .product-text h1 {
-    font-size: 22px;
-  }
+.vase-val {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
 
-  .product-text p {
-    font-size: 13px;
-    margin-top: 20px;
-  }
+.vase-order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(194, 65, 12, 0.5);
+  transition: all 0.25s var(--ease-spring);
+}
 
-  .product-price-btn {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .price1 {
-    margin: 0;
-    font-size: 22px;
-    margin-top: 0;
-    position: static;
-  }
-
-  .product-price-btn button {
-    width: 100%;
-    margin: 0;
-    font-size: 13px;
-    height: 40px;
-  }
+.vase-order-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -4px rgba(194, 65, 12, 0.7);
 }

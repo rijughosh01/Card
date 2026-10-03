@@ -24,7 +24,8 @@ const ProductImageSlider = () => {
             src={image}
             alt={`Thumbnail ${index + 1}`}
             onMouseEnter={() => setMainImage(image)}
-            className="thumb"
+            onClick={() => setMainImage(image)}
+            className={`thumb ${mainImage === image ? "active-thumb" : ""}`}
           />
         ))}
       </div>

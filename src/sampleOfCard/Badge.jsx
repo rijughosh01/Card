@@ -1,63 +1,121 @@
+import React, { useState } from "react";
 import "./Badge.css";
+import { showToast } from "../utils/toast";
 
 export default function Badge() {
+  const [isWishlisted, setIsWishlisted] = useState(false);
+  const [selectedColor, setSelectedColor] = useState("blue");
+
+  const colorVariants = {
+    blue: {
+      name: "Sapphire Blue",
+      img: "https://m.media-amazon.com/images/I/31QRFxphBAL._SX300_SY300_QL70_FMwebp_.jpg",
+      hex: "#2563eb",
+    },
+    black: {
+      name: "Matte Black",
+      img: "https://m.media-amazon.com/images/I/51rpbVmi9XL._SX425_.jpg",
+      hex: "#1e293b",
+    },
+    white: {
+      name: "Platinum Silver",
+      img: "https://m.media-amazon.com/images/I/51bDbj3sUHL._SX425_.jpg",
+      hex: "#e2e8f0",
+    },
+  };
+
+  const currentVariant = colorVariants[selectedColor] || colorVariants.blue;
+
+  const handleAddToCart = () => {
+    showToast(
+      `Sony WH-CH720N (${currentVariant.name}) added to cart!`,
+      "🎧"
+    );
+  };
+
   return (
-    <div class="product-card">
-      <div class="badge">Hot</div>
-      <div class="product-tumb">
-        <img
-          src="https://m.media-amazon.com/images/I/31QRFxphBAL._SX300_SY300_QL70_FMwebp_.jpg"
-          alt=""
-        ></img>
+    <div className="sony-headphone-card">
+      {/* Top Badge & Heart */}
+      <div className="headphone-card-top">
+        <div className="anc-badge">
+          <span className="anc-icon">〰️</span>
+          <span>DUAL NOISE CANCEL</span>
+        </div>
+        <button
+          type="button"
+          className={`headphone-fav-btn ${isWishlisted ? "active" : ""}`}
+          onClick={() => {
+            setIsWishlisted(!isWishlisted);
+            showToast(isWishlisted ? "Removed from favorites" : "Added to favorites!", "❤️");
+          }}
+          aria-label="Favorite"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill={isWishlisted ? "#f43f5e" : "none"} stroke={isWishlisted ? "#f43f5e" : "currentColor"} strokeWidth="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </button>
       </div>
-      <div class="product-details">
-        <span class="product-catagory">Headphones</span>
-        <h4>
-          <a href="">Wireless Bluetooth Over Ear Headphones</a>
-        </h4>
-        <p>
-          Sony WH-CH720N Active Noise Cancellation Wireless Bluetooth Over Ear
-          Headphones with Mic, Adaptive Sound Control, Quick Charge, Up to 35Hrs
-          Battery, Customized EQ- Blue
+
+      {/* Headphone Stage */}
+      <div className="headphone-stage">
+        <img
+          src={currentVariant.img}
+          alt={`Sony WH-CH720N in ${currentVariant.name}`}
+          className="headphone-img"
+        />
+        <div className="battery-pill">
+          <span>🔋 Up to 35 Hrs Playback</span>
+        </div>
+      </div>
+
+      {/* Details */}
+      <div className="headphone-details">
+        <div className="headphone-brand-row">
+          <span className="brand-name">SONY AUDIO</span>
+          <span className="eq-tag">Custom EQ Support</span>
+        </div>
+
+        <h3 className="headphone-title">WH-CH720N Wireless ANC</h3>
+
+        <p className="headphone-desc">
+          Integrated V1 processor delivers studio-grade noise canceling, ultra-light
+          design at just 192g, and multipoint connection.
         </p>
-        <div class="product-bottom-details">
-          <div class="product-price">
-            <small>$160.00</small>$110.99
+
+        {/* Color Switcher */}
+        <div className="headphone-color-row">
+          <span className="color-text">COLOR: <strong>{currentVariant.name}</strong></span>
+          <div className="color-dots">
+            {Object.keys(colorVariants).map((k) => (
+              <button
+                key={k}
+                type="button"
+                className={`color-dot-btn ${selectedColor === k ? "active" : ""}`}
+                style={{ background: colorVariants[k].hex }}
+                onClick={() => setSelectedColor(k)}
+                title={colorVariants[k].name}
+              />
+            ))}
           </div>
-          <div class="product-links">
-            <a href="">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="icon-heart"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                />
-              </svg>
-            </a>
-            <a href="">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="icon-heart"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-                />
-              </svg>
-            </a>
+        </div>
+
+        {/* Price & CTA */}
+        <div className="headphone-footer">
+          <div className="headphone-price-block">
+            <span className="price-old">$160.00</span>
+            <span className="price-now">$110.99</span>
           </div>
+
+          <button
+            type="button"
+            className="headphone-buy-btn"
+            onClick={handleAddToCart}
+          >
+            <span>Add to Cart</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

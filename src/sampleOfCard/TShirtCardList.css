@@ -1,13 +1,67 @@
-.tshirt-card-list {
+.tshirt-section-container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
 }
 
-@media (max-width: 600px) {
-  .tshirt-card-list {
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
+.tshirt-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 14px;
+  text-align: left;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tshirt-sub-head {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+}
+
+.tshirt-main-head {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.tshirt-filter-tabs {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.tshirt-tab-btn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tshirt-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tshirt-tab-btn.active {
+  background: var(--accent-cyan);
+  color: #000;
+}
+
+.tshirt-card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }

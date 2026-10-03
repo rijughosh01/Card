@@ -1,201 +1,227 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f5f7fa;
-  margin: 0;
-  padding: 20px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.product-card {
-  width: 380px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  margin: 50px auto;
-  background: #ffffff;
-  border-radius: 12px;
+.sony-headphone-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
-  transition: all 0.3s ease;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-.product-card:hover {
+.sony-headphone-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 28px 55px -15px rgba(37, 99, 235, 0.25);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 
-.badge {
-  position: absolute;
-  left: 0;
-  top: 20px;
-  text-transform: uppercase;
-  font-size: 12px;
+/* Top */
+.headphone-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 8px;
+}
+
+.anc-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #3b82f6;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   font-weight: 700;
-  background: red;
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
 }
 
-.product-tumb {
+.headphone-fav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 280px;
-  padding: 40px;
-  background: #f0f2f5;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
 }
 
-.product-tumb img {
-  max-width: 100%;
-  max-height: 100%;
+.headphone-fav-btn:hover {
+  transform: scale(1.1);
+  color: #f43f5e;
 }
 
-.product-details {
-  padding: 24px;
+/* Stage */
+.headphone-stage {
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+  padding: 10px;
 }
 
-.product-catagory {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #7c8a97;
-  margin-bottom: 12px;
+.headphone-img {
+  max-width: 85%;
+  max-height: 170px;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease-smooth);
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
 }
 
-.product-details h4 a {
+.sony-headphone-card:hover .headphone-img {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.battery-pill {
+  position: absolute;
+  bottom: 10px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
   font-weight: 600;
-  display: block;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  color: #1a1a1a;
-  font-size: 18px;
-  transition: color 0.3s;
 }
 
-.product-details h4 a:hover {
-  color: #ff9800;
+/* Details */
+.headphone-details {
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.product-details p {
-  font-size: 14px;
-  line-height: 21px;
-  margin-bottom: 20px;
-  color: #555555;
-  text-align: start;
-}
-
-.product-bottom-details {
-  border-top: 1px solid #e0e0e0;
-  padding-top: 18px;
+.headphone-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.product-price {
-  font-size: 18px;
-  color: #f57c00;
-  font-weight: 600;
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #3b82f6;
+  letter-spacing: 0.1em;
 }
 
-.product-price small {
-  font-size: 14px;
-  font-weight: 400;
+.eq-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.headphone-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.headphone-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Colors */
+.headphone-color-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.color-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.color-text strong {
+  color: var(--text-primary);
+}
+
+.color-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.color-dot-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s var(--ease-spring);
+}
+
+.color-dot-btn:hover {
+  transform: scale(1.2);
+}
+
+.color-dot-btn.active {
+  border-color: #3b82f6;
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+/* Footer */
+.headphone-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.headphone-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-old {
+  font-size: 0.85rem;
+  color: var(--text-muted);
   text-decoration: line-through;
-  color: #9e9e9e;
-  margin-right: 8px;
 }
 
-.product-links {
-  text-align: right;
+.price-now {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
 }
 
-.product-links a {
-  margin-left: 10px;
-  color: #b0bec5;
-  transition: color 0.3s;
-  font-size: 18px;
+.headphone-buy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.5);
+  transition: all 0.25s var(--ease-spring);
 }
 
-.icon-heart {
-  width: 30px;
-  height: 30px;
-  color: #c62828;
-  transition: color 0.3s;
-  vertical-align: middle;
-  padding-right: 5px;
-}
-
-.product-links a:hover,
-.product-links a:hover .icon-heart {
-  color: #f57c00;
-}
-
-@media (max-width: 480px) {
-  .product-card {
-    width: 98%;
-    margin: 20px auto;
-    border-radius: 8px;
-  }
-
-  .product-tumb {
-    height: 180px;
-    padding: 16px;
-  }
-
-  .product-details {
-    padding: 12px;
-  }
-
-  .product-details h4 a {
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
-
-  .product-details p {
-    font-size: 12px;
-    margin-bottom: 14px;
-  }
-
-  .product-catagory {
-    font-size: 10px;
-    margin-bottom: 8px;
-  }
-
-  .product-bottom-details {
-    padding-top: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .product-price {
-    font-size: 15px;
-  }
-
-  .product-price small {
-    font-size: 12px;
-  }
-
-  .product-links {
-    text-align: left;
-  }
-
-  .product-links a {
-    font-size: 16px;
-    margin-left: 6px;
-  }
-
-  .badge {
-    font-size: 10px;
-    padding: 3px 8px;
-    top: 10px;
-    border-radius: 0 6px 6px 0;
-  }
+.headphone-buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -4px rgba(37, 99, 235, 0.7);
 }

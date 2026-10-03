@@ -1,0 +1,234 @@
+.star-border-card-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 1.5px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.star-border-card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -15px rgba(168, 85, 247, 0.3);
+}
+
+/* Orbiting Star Beams along borders */
+.star-border-beam {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.star-beam-top {
+  top: 0;
+  right: -250%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.9) 0%, transparent 60%);
+  animation: starSlideTop 5s linear infinite;
+}
+
+.star-beam-bottom {
+  bottom: 0;
+  left: -250%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, transparent 60%);
+  animation: starSlideBottom 5s linear infinite;
+}
+
+@keyframes starSlideTop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200%); }
+}
+
+@keyframes starSlideBottom {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
+}
+
+.star-card-inner {
+  position: relative;
+  z-index: 2;
+  background: #080711;
+  border-radius: calc(var(--radius-lg) - 1.5px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.star-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px 8px;
+}
+
+.star-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #c084fc;
+  letter-spacing: 0.1em;
+}
+
+.twinkle-star {
+  font-size: 0.9rem;
+  color: #c084fc;
+  animation: pulseGlow 1.4s infinite;
+}
+
+.jwst-code {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.star-img-wrapper {
+  position: relative;
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.star-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.star-border-card-container:hover .star-img {
+  transform: scale(1.08);
+}
+
+.celestial-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: #c084fc;
+}
+
+.star-card-details {
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.star-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.star-constellation {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #c084fc;
+}
+
+.star-lightyears {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.star-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.star-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.star-telemetry {
+  display: flex;
+  gap: 8px;
+}
+
+.tele-chip {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tc-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.tc-val {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.star-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.data-pack-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.dp-val {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.star-launch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -6px rgba(168, 85, 247, 0.5);
+  transition: all 0.25s var(--ease-spring);
+}
+
+.star-launch-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -4px rgba(168, 85, 247, 0.8);
+}
